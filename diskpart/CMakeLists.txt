@@ -1,3 +1,9 @@
+if(UNIX AND NOT WIN32)
+    add_executable(diskpart linux_main.c)
+    target_compile_features(diskpart PRIVATE c_std_99)
+    install(TARGETS diskpart RUNTIME DESTINATION bin)
+    return()
+endif()
 
 include_directories(${REACTOS_SOURCE_DIR}/sdk/lib/conutils)
 include_directories(${REACTOS_SOURCE_DIR}/sdk/include/reactos/libs/fmifs)
